@@ -198,11 +198,11 @@ public class MainFragment extends Fragment {
         nativeFB.setOnErrorLoadAd(new OnErrorLoadAd() {
             @Override
             public void onError() {
-                getFragmentManager().beginTransaction().replace(R.id.frame_ads, nativeRich).commitAllowingStateLoss();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_ads, nativeRich).commitAllowingStateLoss();
             }
         });
 
-        getFragmentManager().beginTransaction().replace(R.id.frame_ads, nativeFB).commitAllowingStateLoss();
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_ads, nativeFB).commitAllowingStateLoss();
     }
 
     @Override
