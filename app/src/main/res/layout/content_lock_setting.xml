@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorTransparent"
+    android:fitsSystemWindows="true">
+
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="23dp"
+        android:layout_height="23dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/ic_arrow_left" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignBaseline="@+id/btn_back"
+        android:layout_alignBottom="@+id/btn_back"
+        android:layout_marginLeft="18dp"
+        android:layout_marginStart="18dp"
+        android:layout_toEndOf="@+id/btn_back"
+        android:layout_toRightOf="@+id/btn_back"
+        android:gravity="center_vertical|left"
+        android:text="@string/lock_settings"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btn_settings"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:visibility="gone" />
+
+    <CheckBox
+        android:id="@+id/toggle_state_charging"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/title"
+        android:layout_margin="10dp"
+        android:background="@null"
+        android:button="@null"
+        android:checked="true"
+        android:drawablePadding="10dp"
+        android:drawableRight="@drawable/bg_checkbox_lock"
+        android:text="@string/lock_setting_toggle"
+        android:textColor="#fff"
+        android:textSize="20sp" />
+
+
+</RelativeLayout>

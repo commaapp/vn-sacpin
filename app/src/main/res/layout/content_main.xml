@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <com.vn.viewcustem.CircleWaveView
+                android:id="@+id/seekbar_point"
+                android:layout_width="240dp"
+                android:layout_height="240dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:background="#00000000"
+                app:amplitude="2.0"
+                app:drawNeon="true"
+                app:glowColor="#CC20cab0"
+                app:strokeColor="#CCFFFFFF"
+                app:strokeSize="2dp"
+                app:textSize="50sp"
+                app:upSpeed="2"
+                app:waterColor="@color/colorWaterNormal"
+                app:waterSpeed="5" />
+
+
+            <RelativeLayout
+                android:id="@+id/btn_optimize_bg"
+                android:layout_width="200dp"
+                android:layout_height="48dp"
+                android:layout_below="@+id/seekbar_point"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/btn_optimize">
+
+                <ImageView
+                    android:id="@+id/btn_optimize_done"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toLeftOf="@+id/btn_optimize"
+                    android:src="@drawable/ic_check_circle_outline"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/btn_optimize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="@string/optimize_start"
+                    android:textSize="22sp" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_tip_optimize"
+                style="@style/TextAppearance.AppCompat.Body2"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btn_optimize_bg"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="@string/tip_optimize"
+                android:textColor="@color/colorAccent" />
+
+            <LinearLayout
+                android:id="@+id/frame_ads"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_tip_optimize"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical" />
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

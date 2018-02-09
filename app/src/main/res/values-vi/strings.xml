@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+
+
+    <string name="app_name">Sạc Pin Siêu Nhanh</string>
+    <string name="app_owner">VN Studio</string>
+    <string name="owner_email">VN.studio@android.com</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Cài đặt</string>
+    <string name="lock_settings">Cài đặt màn hình khóa</string>
+
+    <string name="action_rate_app">Đánh giá cho chúng tôi 5 sao nhé!</string>
+    <string name="action_share_app">Chia sẻ ứng dụng</string>
+    <string name="action_more_app">Thêm ứng dụng</string>
+    <string name="q_fast_charging">Bạn có muốn sử dụng Sạc Pin Nhanh?</string>
+    <string name="rate_five_star">Đánh giá cho chúng tôi 5 sao nhé!</string>
+
+    <string name="setting_group_function">Chức năng tự động khi sử dụng</string>
+    <string name="function_clear_ram">Tối ưu hóa Ram</string>
+    <string name="function_off_internet">Tắt kết nối mạng</string>
+    <string name="function_min_brightness">Giảm độ sáng màn hình</string>
+    <string name="function_off_bluetooth">Tắt Bluetooth</string>
+    <string name="function_off_rotate">Khóa xoay màn hình</string>
+    <string name="function_off_wifi">Tắt Wi-Fi</string>
+    <string name="battery_full">Pin đầy</string>
+    <string name="setting_group_trigger">Hành động khi cắm sạc</string>
+    <string name="trigger_no_run">Không khởi động ứng dụng khi cắm sạc</string>
+    <string name="trigger_ask_run">Mở hộp thoại hỏi khi cắm sạc</string>
+    <string name="trigger_auto_run">Tự động chạy và tối ưu ứng dụng khi cắm sạc</string>
+    <string name="charging">Đang sạc</string>
+    <string name="percent" formatted="false">%d%%</string>
+    <string name="setting_group_other">Chức năng tự động khi đang sạc nhanh</string>
+    <string name="exit_on_unplug">Tự động tắt ứng dụng ngầm khi đang sạc</string>
+    <string name="state_on_lock">Hiển thị trạng thái sạc (Trên màn hình khóa)</string>
+    <string name="restore_on_exit">Tự động khôi phục lại trạng thái ban đầu</string>
+
+    <string name="time_left">Vui lòng chờ đến khi sạc đầy pin </string>
+    <string name="time_left_main">Thời gian chờ</string>
+    <string name="time_estimating">Đang ước tính</string>
+    <string name="time_charging">Đang sạc pin</string>
+    <string name="time_left_value">%1$sh%2$sm</string>
+
+    <string name="title_activity_lock_setting">Cài đặt màn hình khóa</string>
+
+    <string name="lock_setting_toggle">Bật màn hình khóa với Sạc Pin Nhanh</string>
+
+    <string name="optimize_start">TỐI ƯU</string>
+    <string name="optimize_running">Đang tối ưu...</string>
+    <string name="optimize_done">Hoàn thành</string>
+    <string name="slide_to_unlock">Trượt để mở khóa</string>
+    <string name="great">Tuyệt vời!!!</string>
+    <string name="great_content">Thiết bị đã sẵn sàng\nđể sạc pin nhanh</string>
+
+    <string name="nof_title_not_charging">Pin đang không sạc</string>
+    <string name="nof_title_charging">Pin đang sạc</string>
+    <string name="nof_title_low">Pin yếu !!</string>
+
+    <string name="nof_fast_charge_lite_optimized">Đã tối ưu để sạc nhanh</string>
+    <string name="nof_fast_charge_lite_unoptimized">Chưa được tối ưu</string>
+    <string name="nof_fast_charge">Chạm để sạc nhanh</string>
+
+    <string name="ask_bt_yes">Có</string>
+    <string name="ask_bt_no">Không</string>
+    <string name="ask_nomal_mode">Sạc chậm</string>
+    <string name="ask_fast_mode">Sạc nhanh</string>
+
+    <string name="ask_permission">Cho phép ứng dụng thay đổi cài đặt</string>
+    <string name="download">Tải về</string>
+    <string name="cp_hot_apps">Thêm ứng dụng</string>
+    <string name="lbl_add_app">Thêm ứng dụng</string>
+
+    <string name="hint_optimize">Chạm để tăng tốc sạc pin</string>
+    <string name="hint_setting">Chạm để thay đổi cài đặt sạc pin</string>
+    <string name="drawer_open">Mở</string>
+    <string name="drawer_close">Đóng</string>
+    <string name="title_rate_app">Đánh giá cho chúng tôi 5 sao nhé!</string>
+    <string name="lbl_later">Để sau</string>
+    <string name="lbl_rate">Đánh giá</string>
+    <string name="sms_thank_you_rate">Đánh giá cho chúng tôi 5 sao nhé!</string>
+    <string name="lbl_sponsored">Được tài trợ</string>
+    <string name="lbl_battery_save">Tiết kiệm pin</string>
+    <string name="advertisement">Quảng cáo</string>
+
+    <string name="optimize">Tối ưu hóa</string>
+    <string name="full_battery_on_exit">Báo thức khi sạc đầy pin</string>
+    <string name="tip_optimize">Nhấn "TỐI ƯU" để đưa điện thoại vào trạng thái tốt nhất để sạc nhanh</string>
+    <string name="function_off_sync">Tắt Đồng Bộ Hóa</string>
+    <string name="tip_done">TUYỆT ! Giờ bạn đã có thể cắm sạc và tận hưởng sạc pin nhanh siêu tốc.</string>
+    <string name="tip_optimizting">Vui lòng chờ khi đang tối ưu..</string>
+</resources>
