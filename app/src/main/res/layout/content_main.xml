@@ -84,13 +84,12 @@
                 android:textColor="@color/colorAccent" />
 
             <LinearLayout
-                android:id="@+id/frame_ads"
+                android:id="@+id/fb_native_ad_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_tip_optimize"
                 android:layout_marginTop="10dp"
                 android:orientation="vertical" />
-
 
         </RelativeLayout>
     </ScrollView>

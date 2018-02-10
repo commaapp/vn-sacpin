@@ -18,13 +18,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.ads.Ad;
+import com.facebook.ads.AdChoicesView;
+import com.facebook.ads.AdError;
+import com.facebook.ads.AdListener;
+import com.facebook.ads.AdSettings;
+import com.facebook.ads.MediaView;
+import com.facebook.ads.NativeAd;
 import com.facebook.appevents.AppEventsLogger;
 import com.vn.viewcustem.CircleWaveView;
 import com.vn.viewcustem.CircleWaveViewListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import admod.AdmodNativeAdFragment;
 import butterknife.BindView;
@@ -60,6 +72,7 @@ public class MainFragment extends Fragment {
     private AppEventsLogger logger;
     private LinearLayout btnSetting;
     private LinearLayout btnMoreApp;
+    private NativeAd nativeAd;
 
     @Override
     public void onAttach(Context context) {
@@ -183,17 +196,92 @@ public class MainFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        loadAdx();
+//        loadAdx();
+        showNativeAd();
     }
 
     NativeAdFragment nativeRich;
     FacebookNativeAdFragment nativeFB;
     AdmodNativeAdFragment admodNativeAdFragment;
+    private void showNativeAd() {
+        AdSettings.addTestDevice("92d8057c822a59317fdcd8c8030080c6");
+        nativeAd = new NativeAd(getContext(), "1631427560285640_1672969492798113");
+//        nativeAd = new NativeAd(getContext(), "");
+        nativeAd.setAdListener(new AdListener() {
 
+            @Override
+            public void onError(Ad ad, AdError error) {
+                nativeRich = new NativeAdFragment();
+                nativeRich.setIdAd("/112517806/519401517413776");
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fb_native_ad_container, nativeRich).commitAllowingStateLoss();
+            }
+
+            @Override
+            public void onAdLoaded(Ad ad) {
+                try {
+                    // Add the Ad view into the ad container.
+                    nativeAdContainer = (LinearLayout) getView().findViewById(R.id.fb_native_ad_container);
+                    LayoutInflater inflater = LayoutInflater.from(getActivity());
+                    adView = (LinearLayout) inflater.inflate(com.duong.mylibrary.R.layout.facebook_native_ad_layout, nativeAdContainer, false);
+                    nativeAdContainer.addView(adView);
+
+                    // Create native UI using the ad metadata.
+                    ImageView nativeAdIcon = (ImageView) adView.findViewById(com.duong.mylibrary.R.id.native_ad_icon);
+                    TextView nativeAdTitle = (TextView) adView.findViewById(com.duong.mylibrary.R.id.native_ad_title);
+                    MediaView nativeAdMedia = (MediaView) adView.findViewById(com.duong.mylibrary.R.id.native_ad_media);
+                    TextView nativeAdSocialContext = (TextView) adView.findViewById(com.duong.mylibrary.R.id
+                            .native_ad_social_context);
+                    TextView nativeAdBody = (TextView) adView.findViewById(com.duong.mylibrary.R.id.native_ad_body);
+                    Button nativeAdCallToAction = (Button) adView.findViewById(com.duong.mylibrary.R.id
+                            .native_ad_call_to_action);
+
+                    // Set the Text.
+                    nativeAdTitle.setText(nativeAd.getAdTitle());
+                    nativeAdSocialContext.setText(nativeAd.getAdSocialContext());
+                    nativeAdBody.setText(nativeAd.getAdBody());
+                    nativeAdCallToAction.setText(nativeAd.getAdCallToAction());
+
+                    // Download and display the ad icon.
+                    NativeAd.Image adIcon = nativeAd.getAdIcon();
+                    NativeAd.downloadAndDisplayImage(adIcon, nativeAdIcon);
+
+                    // Download and display the cover image.
+                    nativeAdMedia.setNativeAd(nativeAd);
+
+                    // Add the AdChoices icon
+                    LinearLayout adChoicesContainer = (LinearLayout) adView.findViewById(com.duong.mylibrary.R.id.ad_choices_container);
+                    AdChoicesView adChoicesView = new AdChoicesView(getContext(), nativeAd, true);
+                    adChoicesContainer.addView(adChoicesView);
+
+                    // Register the Title and CTA button to listen for clicks.
+                    List<View> clickableViews = new ArrayList<>();
+                    clickableViews.add(nativeAdTitle);
+                    clickableViews.add(nativeAdCallToAction);
+                    nativeAd.registerViewForInteraction(nativeAdContainer, clickableViews);
+                } catch (Exception e) {
+
+                }
+
+            }
+
+            @Override
+            public void onAdClicked(Ad ad) {
+                // Ad clicked callback
+            }
+
+            @Override
+            public void onLoggingImpression(Ad ad) {
+                // On logging impression callback
+            }
+        });
+
+        // Request an ad
+        nativeAd.loadAd();
+    }
     private void loadAdx() {
         nativeRich = new NativeAdFragment();
         nativeRich.setIdAd("/112517806/519401517413776");
-
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_ads, nativeRich).commitAllowingStateLoss();
         nativeFB = new FacebookNativeAdFragment();
         nativeFB.setIdAd("1631427560285640_1672969492798113");
 
