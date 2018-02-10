@@ -26,6 +26,7 @@ import com.facebook.appevents.AppEventsLogger;
 import com.vn.viewcustem.CircleWaveView;
 import com.vn.viewcustem.CircleWaveViewListener;
 
+import admod.AdmodNativeAdFragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -187,6 +188,7 @@ public class MainFragment extends Fragment {
 
     NativeAdFragment nativeRich;
     FacebookNativeAdFragment nativeFB;
+    AdmodNativeAdFragment admodNativeAdFragment;
 
     private void loadAdx() {
         nativeRich = new NativeAdFragment();
@@ -195,6 +197,9 @@ public class MainFragment extends Fragment {
         nativeFB = new FacebookNativeAdFragment();
         nativeFB.setIdAd("1631427560285640_1672969492798113");
 
+        admodNativeAdFragment=new AdmodNativeAdFragment();
+        admodNativeAdFragment.setIdAd("ca-app-pub-9912310468706838/1439053842");
+
         nativeFB.setOnErrorLoadAd(new OnErrorLoadAd() {
             @Override
             public void onError() {
@@ -202,7 +207,7 @@ public class MainFragment extends Fragment {
             }
         });
 
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_ads, nativeFB).commitAllowingStateLoss();
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_ads, admodNativeAdFragment).commitAllowingStateLoss();
     }
 
     @Override

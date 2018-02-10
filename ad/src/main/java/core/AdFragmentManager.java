@@ -11,6 +11,11 @@ import com.duong.mylibrary.R;
 
 /**
  * Created by d on 1/24/2018.
+done ca-app-pub-9912310468706838/4525571555
+ float ca-app-pub-9912310468706838/9545608728
+home ca-app-pub-9912310468706838/1439053842
+settings ca-app-pub-9912310468706838/5100286624
+
  */
 
 public class AdFragmentManager extends Fragment {
