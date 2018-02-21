@@ -16,6 +16,8 @@
     <color name="colorCTA">#00CC33</color>
     <color name="colorTextPrimary">#212121</color>
     <color name="colorLater">#b6b6b6</color>
+    <color name="colorBlack">#000000</color>
 
     <color name="colorStart">#FFFF00</color>
+    <color name="b7">#eac248</color>
 </resources>

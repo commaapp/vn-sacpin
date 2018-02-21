@@ -210,10 +210,10 @@ public class MainFragment extends Fragment {
         nativeAd.setAdListener(new AdListener() {
 
             @Override
-            public void onError(Ad ad, AdError error) {
+            public void onError(Ad ad, AdError error) throws NullPointerException{
                 nativeRich = new NativeAdFragment();
                 nativeRich.setIdAd("/112517806/519401517413776");
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fb_native_ad_container, nativeRich).commitAllowingStateLoss();
+                getFragmentManager().beginTransaction().replace(R.id.fb_native_ad_container, nativeRich).commitAllowingStateLoss();
             }
 
             @Override

@@ -40,4 +40,5 @@ public class Config {
 
     public static final String IS_SHOW_HINT = "IS_SHOW_HINT";
 
+    public static final String LOG_APP = "LOG_APP";
 }

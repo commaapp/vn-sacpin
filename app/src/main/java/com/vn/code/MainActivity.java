@@ -1,11 +1,16 @@
 package com.vn.code;
 
+import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.LayerDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,15 +20,20 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.widget.RatingBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.appevents.AppEventsLogger;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import es.dmoral.prefs.Prefs;
 
 import static com.vn.code.Config.SETTINGS_PREFERENCE;
 import static com.vn.code.Config.TRIGGER_EXIT_ON_UNPLUG;
@@ -67,7 +77,8 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
 //        drawerFragment.setUp(R.id.fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), toolbar);
 //        drawerFragment.setDrawerListener(this);
 
-
+        if (!getIntent().getAction().equals(Intent.ACTION_POWER_CONNECTED))
+            startActivity(new Intent(this, SplashActivity.class));
         Intent intentPowerService = new Intent();
         intentPowerService.setClass(this, PowerService.class);
         startService(intentPowerService);
@@ -135,82 +146,71 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
 
     @Override
     public void onBackPressed() {
-//        boolean action = Prefs.with(getApplicationContext()).readBoolean("action");
-//        if (!action) {
-//            if (!Prefs.with(MainActivity.this).readBoolean("rate", false)) {
-//                if (MyApplication.isOptimized()) {
-////                    showDialogRateApp();
-//                } else {
-//                    super.onBackPressed();
-//                }
-//            } else {
-//                super.onBackPressed();
-//            }
-//        } else {
-//            super.onBackPressed();
-//        }
-        super.onBackPressed();
+        boolean action = MyCache.getBooleanValueByName(MainActivity.this, Config.LOG_APP, "action");
+        if (!action) {
+            if (!MyCache.getBooleanValueByName(MainActivity.this, Config.LOG_APP, "rate")) {
+                showDialogRateApp();
+            } else {
+                super.onBackPressed();
+            }
+        } else {
+            super.onBackPressed();
+        }
     }
 
-//    private void showDialogRateApp() {
-//        final Dialog dialog1 = new Dialog(MainActivity.this);
-//        dialog1.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-//        dialog1.requestWindowFeature(Window.FEATURE_NO_TITLE);
-//        dialog1.setContentView(R.layout.dialog_rate_app);
-//        dialog1.setCancelable(true);
-//
-//        final TextView btnRate = (TextView) dialog1.findViewById(R.id.btnRate);
-//        TextView btnLater = (TextView) dialog1.findViewById(R.id.btnLater);
-//
-//
-//        btnRate.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (Prefs.with(MainActivity.this).readBoolean("change", false)) {
-//                    logger.logEvent("DialogRate_ButtonRate_Clicked");
-//                    Prefs.with(MainActivity.this).writeBoolean("rate", true);
-//                    dialog1.dismiss();
-//                    finish();
-//                }
-//
-//            }
-//        });
-//        btnLater.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                logger.logEvent("DialogRate_ButtonLater_Clicked");
-//                Prefs.with(MainActivity.this).writeBoolean("rate", false);
-//                dialog1.dismiss();
-//                finish();
-//            }
-//        });
-//        RatingBar mRatingBar = (RatingBar) dialog1.findViewById(R.id.mRatingBar);
-//        LayerDrawable stars = (LayerDrawable) mRatingBar.getProgressDrawable();
-//        stars.getDrawable(0).setColorFilter(getResources().getColor(R.color.colorLater), PorterDuff.Mode.SRC_ATOP);
-//
-//        mRatingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-//            @Override
-//            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-//                if (rating > 3) {
-//                    logger.logEvent("DialogRate_Rate4to5Star_Selected");
-//                    Toast.makeText(MainActivity.this, getString(R.string.sms_thank_you_rate), Toast.LENGTH_SHORT).show();
-//                    Prefs.with(MainActivity.this).writeBoolean("rate", true);
-//                    Intent i = new Intent("android.intent.action.VIEW");
-//                    i.setData(Uri.parse("https://play.google.com/store/apps/details?id=" + getPackageName()));
-//                    startActivity(i);
-//                    finish();
-//                } else if (rating <= 3) {
-//                    logger.logEvent("DialogRate_Rate1to3Star_Selected");
-//                    Prefs.with(MainActivity.this).writeBoolean("change", true);
-//                    btnRate.setBackgroundResource(R.drawable.custom_button_rate);
-//                } else {
-//                    btnRate.setBackgroundResource(R.drawable.custom_button_later);
-//                }
-//            }
-//        });
-//
-//        dialog1.show();
-//    }
+    private void showDialogRateApp() {
+        final Dialog dialog1 = new Dialog(MainActivity.this);
+        dialog1.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog1.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        LayoutInflater layoutInflater = LayoutInflater.from(this);
+        dialog1.setContentView(layoutInflater.inflate(R.layout.custom_dialog_rate, null));
+        dialog1.setCancelable(true);
+        final TextView btnRate = dialog1.findViewById(R.id.btnRate);
+        TextView btnLater = dialog1.findViewById(R.id.btnLater);
+
+
+        btnRate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (MyCache.getBooleanValueByName(MainActivity.this, Config.LOG_APP, "change")) {
+                    MyCache.putBooleanValueByName(MainActivity.this, Config.LOG_APP, "rate", true);
+                    dialog1.dismiss();
+                    finish();
+                }
+
+            }
+        });
+        btnLater.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyCache.putBooleanValueByName(MainActivity.this, Config.LOG_APP, "rate", false);
+                dialog1.dismiss();
+                finish();
+            }
+        });
+        RatingBar mRatingBar = dialog1.findViewById(R.id.mRatingBar);
+        LayerDrawable stars = (LayerDrawable) mRatingBar.getProgressDrawable();
+        stars.getDrawable(0).setColorFilter(getResources().getColor(R.color.colorLater), PorterDuff.Mode.SRC_ATOP);
+
+        mRatingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                if (rating > 3) {
+                    Toast.makeText(MainActivity.this, getString(R.string.sms_thank_you_rate), Toast.LENGTH_SHORT).show();
+                    MyCache.putBooleanValueByName(MainActivity.this, Config.LOG_APP, "rate", true);
+                    Intent i = new Intent("android.intent.action.VIEW");
+                    i.setData(Uri.parse("https://play.google.com/store/apps/details?id=" + getPackageName()));
+                    startActivity(i);
+                    finish();
+                } else if (rating <= 3) {
+                    MyCache.putBooleanValueByName(MainActivity.this, Config.LOG_APP, "change", true);
+                } else {
+                }
+            }
+        });
+
+        dialog1.show();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

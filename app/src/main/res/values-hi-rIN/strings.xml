@@ -1,0 +1,93 @@
+<resources>
+
+
+    <string name="app_name">फास्ट चार्जर</string>
+    <string name="app_owner">VN Studio</string>
+    <string name="owner_email">VN.studio@android.com</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">सभी सेटिंग्स</string>
+    <string name="lock_settings">सेटिंग्स</string>
+
+    <string name="action_rate_app">दर 5 *</string>
+    <string name="action_share_app">ऐप साझा करें</string>
+    <string name="action_more_app">अधिक एप्लिकेशन</string>
+    <string name="q_fast_charging">क्या आप फास्ट चार्जिंग चाहते हैं?</string>
+    <string name="rate_five_star">कृपया हमारे लिए 5 स्टार दर, धन्यवाद!</string>
+
+    <string name="setting_group_function">इस एप्लिकेशन का उपयोग करते समय ऑटो-फ़ंक्शन</string>
+    <string name="function_clear_ram">रैम बूस्टर</string>
+    <string name="function_off_internet">इंटरनेट बंद करें</string>
+    <string name="function_min_brightness">चमक कम करें</string>
+    <string name="function_off_bluetooth">ब्लूटूथ बंद करें</string>
+    <string name="function_off_rotate">घुमाएगी स्क्रीन बंद करें</string>
+    <string name="function_off_wifi">वाई-फाई बंद करें</string>
+
+    <string name="setting_group_trigger">प्लग इन चार्जर के दौरान डिवाइस कार्रवाई</string>
+    <string name="trigger_no_run">जब आप चार्जर को कनेक्ट करते हैं, तो तेज शुल्क न लें</string>
+    <string name="trigger_ask_run">जब आप चार्जर को कनेक्ट करते हैं तो पूछें संवाद दिखायें</string>
+    <string name="trigger_auto_run">एक चार्जर में प्लगिंग करते समय स्वचालित रूप से तेज शुल्क और ऑप्टिमाइज़ करें</string>
+    <string name="charging">बैटरी चार्ज हो रहा है</string>
+    <string name="percent" formatted="false">%d%%</string>
+    <string name="setting_group_other">बैटरी के तेजी से चार्ज करने के दौरान ऑटो फ़ंक्शन</string>
+    <string name="exit_on_unplug">बैटरी चार्ज करने के दौरान चल रहे एप्लिकेशन बंद करें</string>
+    <string name="state_on_lock">बैटरी चार्ज स्थिति दिखाएं (लॉक स्क्रीन)</string>
+    <string name="restore_on_exit">जब आप चार्जर को डिस्कनेक्ट करते हैं, तो स्वचालित पुनर्स्थापना स्थिति</string>
+
+    <string name="time_left">पूर्ण बैटरी तक प्रतीक्षा करें</string>
+    <string name="battery_full">पूरी तरह से चार्ज</string>
+    <string name="time_left_main">पूर्ण बैटरी तक प्रतीक्षा करें</string>
+    <string name="time_estimating">आकलन</string>
+    <string name="time_charging">बैटरी चार्ज हो रही है</string>
+    <string name="time_left_value">%1$sh%2$sm</string>
+
+    <string name="title_activity_lock_setting">लॉक स्क्रीन सेटिंग</string>
+
+    <string name="lock_setting_toggle">तेज चार्जर द्वारा लॉक स्क्रीन सक्रिय करें</string>
+
+    <string name="optimize_start">का अनुकूलन</string>
+    <string name="optimize_running">अनुकूलन ...</string>
+    <string name="optimize_done">किया हुआ</string>
+    <string name="slide_to_unlock">स्क्रीन अनलॉक करने के लिए स्लाइड करें</string>
+    <string name="great">प्रभावशाली !!!</string>
+    <string name="great_content">आपका उपकरण\nतेज़ चार्जिंग मोड के लिए तैयार है</string>
+
+    <string name="nof_title_not_charging"> बैटरी चार्ज नहीं कर रही है</string>
+    <string name="nof_title_charging">बैटरी चार्ज हो रही है</string>
+    <string name="nof_title_low">बैटरी कम है</string>
+
+    <string name="nof_fast_charge_lite_optimized">फास्ट चार्ज अनुकूलित</string>
+    <string name="nof_fast_charge_lite_unoptimized">फास्ट चार्जिंग अप्रयुक्त</string>
+    <string name="nof_fast_charge">त्वरित बैटरी चार्ज के लिए यहां क्लिक करें</string>
+
+    <string name="ask_bt_yes">हाँ</string>
+    <string name="ask_bt_no">नहीं</string>
+    <string name="ask_nomal_mode">सामान्य शुल्क</string>
+    <string name="ask_fast_mode">त्वरित शुल्क</string>
+
+    <string name="ask_permission">परिवर्तन सिस्टम सेटिंग्स की कॉन्फ़िगरेशन को तेज़ी से चार्ज करने की अनुमति दें</string>
+    <string name="download">डाउनलोड</string>
+    <string name="cp_hot_apps">और ऐप</string>
+    <string name="lbl_add_app">और ऐप</string>
+
+    <string name="hint_optimize">बैटरी चार्ज गति \nबढ़ाने के लिए यहां क्लिक करें</string>
+    <string name="hint_setting">बैटरी चार्ज विकल्प को \nबदलने के लिए यहां क्लिक करें</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string name="title_rate_app">कृपया दर 5 * हमारे लिए!</string>
+    <string name="lbl_later">बाद में</string>
+    <string name="lbl_rate">हमें रेटिंग दें</string>
+    <string name="sms_thank_you_rate">कृपया दर 5 * हमारे लिए! आपका बहुत बहुत धन्यवाद</string>
+    <string name="lbl_sponsored">प्रायोजित</string>
+    <string name="lbl_battery_save">बैटरी बचाना</string>
+    <string name="advertisement">विज्ञापन</string>
+    <string name="rate_us">अगर आपको बिग फ़ॉन्ट पसंद है तो कृपया 5 स्टार रेट करें</string>
+    <string name="optimize">का अनुकूलन</string>
+    <string name="full_battery_on_exit">बैटरी पूरी तरह चार्ज होने पर रिंग करना</string>
+    <string name="tip_optimize">अपने डिवाइस को तेज़ चार्जिंग मोड में त्वरित रूप से चालू करने के लिए "का अनुकूलन" को स्पर्श करें</string>
+    <string name="function_off_sync">समन्वयन बंद करें</string>
+    <string name="tip_done">महान! अब आप चार्जर में प्लग कर सकते हैं और तेज चार्जिंग मोड का आनंद ले सकते हैं।</string>
+    <string name="tip_optimizting">अनुकूलित होने तक प्रतीक्षा करें</string>
+</resources>

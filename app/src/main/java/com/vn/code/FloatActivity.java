@@ -114,7 +114,6 @@ public class FloatActivity extends AppCompatActivity implements View.OnClickList
                         intent.setClass(this, MainActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         intent.setAction(Intent.ACTION_POWER_CONNECTED);
-
                         startActivity(intent);
                         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                     }

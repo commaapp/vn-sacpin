@@ -1,0 +1,93 @@
+<resources>
+
+
+    <string name="app_name">เครื่องชาร์จแบบเร็ว</string>
+    <string name="app_owner">VN Studio</string>
+    <string name="owner_email">VN.studio@android.com</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">การตั้งค่าทั้งหมด</string>
+    <string name="lock_settings">การตั้งค่า</string>
+
+    <string name="action_rate_app">อัตรา 5 *</string>
+    <string name="action_share_app">แชร์แอป</string>
+    <string name="action_more_app">แอพพลิเคชันเพิ่มเติม</string>
+    <string name="q_fast_charging">คุณต้องการชาร์จไฟอย่างรวดเร็วหรือไม่?</string>
+    <string name="rate_five_star">กรุณาให้คะแนน 5 ดาวสำหรับเราขอบคุณ!</string>
+    <string name="rate_us">ให้คะแนนแก่เรา 5 ดาวถ้าคุณชอบแอปพลิเคชันนี้</string>
+    <string name="setting_group_function">ฟังก์ชันอัตโนมัติขณะใช้แอปนี้</string>
+    <string name="function_clear_ram">เครื่องมือเพิ่มประสิทธิภาพ RAM</string>
+    <string name="function_off_internet">ปิดอินเทอร์เน็ต</string>
+    <string name="function_min_brightness">ลดความสว่าง</string>
+    <string name="function_off_bluetooth">ปิดบลูทู ธ</string>
+    <string name="function_off_rotate">ปิดหน้าจอหมุน</string>
+    <string name="function_off_wifi">ปิด Wi-Fi</string>
+
+    <string name="setting_group_trigger">การทำงานของอุปกรณ์เมื่อเชื่อมต่อกับอุปกรณ์ชาร์จ</string>
+    <string name="trigger_no_run">อย่าใช้เครื่องชาร์จไฟอย่างรวดเร็วเมื่อคุณต่ออุปกรณ์ชาร์จ</string>
+    <string name="trigger_ask_run">แสดงกล่องโต้ตอบถามเมื่อคุณเชื่อมต่อเครื่องชาร์จ</string>
+    <string name="trigger_auto_run">เครื่องชาร์จอย่างรวดเร็วทำงานโดยอัตโนมัติและเพิ่มประสิทธิภาพเมื่อเสียบเข้ากับเครื่อง</string>
+    <string name="charging">การชาร์จแบตเตอรี่</string>
+    <string name="percent" formatted="false">%d%%</string>
+    <string name="setting_group_other">ฟังก์ชั่นอัตโนมัติในระหว่างการชาร์จแบตเตอรี่อย่างรวดเร็ว</string>
+    <string name="exit_on_unplug">ปิดแอปพลิเคชั่นที่กำลังทำงานอยู่ในขณะที่กำลังชาร์จแบตเตอรี่</string>
+    <string name="state_on_lock">แสดงสถานะการชาร์จแบตเตอรี่ (หน้าจอล็อก)</string>
+    <string name="restore_on_exit">สถานะการคืนค่าอัตโนมัติเมื่อคุณถอดสายชาร์จ</string>
+
+    <string name="time_left">รอจนกว่าแบตเตอรี่เต็ม</string>
+    <string name="battery_full">ชาร์จเต็มแล้ว</string>
+    <string name="time_left_main">รอจนกว่าแบตเตอรี่เต็ม</string>
+    <string name="time_estimating">ประมาณ</string>
+    <string name="time_charging">กำลังชาร์จแบตเตอรี่อยู่</string>
+    <string name="time_left_value">%1$sh%2$sm</string>
+
+    <string name="title_activity_lock_setting">การกำหนดค่าหน้าจอล็อก</string>
+
+    <string name="lock_setting_toggle">เปิดใช้งานหน้าจอล็อกโดยใช้ที่ชาร์จอย่างรวดเร็ว</string>
+
+    <string name="optimize_start">การเพิ่มประสิทธิภาพ</string>
+    <string name="optimize_running">กำลังเพิ่มประสิทธิภาพ ...</string>
+    <string name="optimize_done">เสร็จสิ้น</string>
+    <string name="slide_to_unlock">สไลด์เพื่อปลดล็อก</string>
+    <string name="great">ที่น่าประทับใจ !!!</string>
+    <string name="great_content">อุปกรณ์ของคุณพร้อมสำหรับ\nโหมดการชาร์จไฟที่รวดเร็ว</string>
+
+    <string name="nof_title_not_charging">แบตเตอรี่ไม่ชาร์จ</string>
+    <string name="nof_title_charging">กำลังชาร์จแบตเตอรี่อยู่</string>
+    <string name="nof_title_low">แบตเตอรี่ใกล้หมด</string>
+
+    <string name="nof_fast_charge_lite_optimized">Fast Charge ได้รับการปรับให้เหมาะสมแล้ว</string>
+    <string name="nof_fast_charge_lite_unoptimized">การชาร์จอย่างรวดเร็วยังไม่เหมาะ</string>
+    <string name="nof_fast_charge">คลิกที่นี่เพื่อชาร์จแบตเตอรี่ได้อย่างรวดเร็ว</string>
+
+    <string name="ask_bt_yes">ใช่</string>
+    <string name="ask_bt_no">ไม่</string>
+    <string name="ask_nomal_mode">โหมดปกติ</string>
+    <string name="ask_fast_mode">โหมดเร็ว</string>
+
+    <string name="ask_permission">อนุญาตให้ตั้งค่าระบบการเปลี่ยนแปลงการตั้งค่าเพื่อชาร์จแบตเตอรี่ได้เร็วขึ้น</string>
+    <string name="download">ดาวน์โหลด</string>
+    <string name="cp_hot_apps">แอปอื่น ๆ</string>
+    <string name="lbl_add_app">แอปอื่น ๆ</string>
+
+    <string name="hint_optimize">คลิกที่นี่เพื่อเพิ่มความเร็วในการ\nชาร์จแบตเตอรี่</string>
+    <string name="hint_setting">คลิกที่นี่เพื่อเปลี่ยนตัวเลือกก\nารชาร์จแบตเตอรี่</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string name="title_rate_app">กรุณาให้คะแนน 5 * สำหรับเรา!</string>
+    <string name="lbl_later">ต่อมา</string>
+    <string name="lbl_rate">อัตรา</string>
+    <string name="sms_thank_you_rate">ให้คะแนน 5 * สำหรับเราขอขอบคุณ</string>
+    <string name="lbl_sponsored">ผู้ให้การสนับสนุน</string>
+    <string name="lbl_battery_save">ประหยัดพลังงาน</string>
+    <string name="advertisement">การโฆษณา</string>
+
+    <string name="optimize">การเพิ่มประสิทธิภาพ</string>
+    <string name="full_battery_on_exit">แจ้งเตือนเมื่อแบตเตอรี่เต็ม</string>
+    <string name="tip_optimize">แตะ "การเพิ่มประสิทธิภาพ" เพื่อให้อุปกรณ์ของคุณอยู่ในสถานะที่ดีที่สุดในการโหลดได้เร็วขึ้น</string>
+    <string name="function_off_sync">ปิดการซิงค์</string>
+    <string name="tip_done">ที่ดี! ตอนนี้คุณสามารถเสียบปลั๊กไฟและเพลิดเพลินไปกับโหมดชาร์จไฟได้อย่างรวดเร็ว</string>
+    <string name="tip_optimizting">รอจนกว่าจะปรับให้เหมาะสม</string>
+</resources>

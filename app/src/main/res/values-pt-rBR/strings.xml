@@ -1,0 +1,93 @@
+<resources>
+
+
+    <string name="app_name">Carregador rápido</string>
+    <string name="app_owner">VN Studio</string>
+    <string name="owner_email">VN.studio@android.com</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Todas as Configurações</string>
+    <string name="lock_settings">Configurações</string>
+
+    <string name="action_rate_app">Taxa 5 *</string>
+    <string name="action_share_app">Compartilhe o aplicativo</string>
+    <string name="action_more_app">Mais aplicações</string>
+    <string name="q_fast_charging">Você quer cobrar rápido?</string>
+    <string name="rate_five_star">Por favor, avalie 5 estrelas para nós, obrigado!</string>
+
+    <string name="setting_group_function">Funções automáticas ao usar este aplicativo</string>
+    <string name="function_clear_ram">Otimizador de RAM</string>
+    <string name="function_off_internet">Desligue a internet</string>
+    <string name="function_min_brightness">Reduzir brilho</string>
+    <string name="function_off_bluetooth">Desligue o Bluetooth</string>
+    <string name="function_off_rotate">Desligar a tela girar</string>
+    <string name="function_off_wifi">Desligue o Wi-Fi</string>
+
+    <string name="setting_group_trigger">Ação quando conectar o carregador de bateria</string>
+    <string name="trigger_no_run">Não execute o aplicativo quando conectar o carregador</string>
+    <string name="trigger_ask_run">Não execute o aplicativo quando conectar o carregador</string>
+    <string name="trigger_auto_run">Aplicação de execução automática e otimize quando ligar o carregador</string>
+    <string name="charging">Carregamento da bateria</string>
+    <string name="percent" formatted="false">%d%%</string>
+    <string name="setting_group_other">Funções automáticas enquanto carregamento rápido da bateria</string>
+    <string name="exit_on_unplug">Feche aplicativos em execução enquanto carrega a bateria</string>
+    <string name="state_on_lock">Mostrar Status da carga da bateria (tela de bloqueio)</string>
+    <string name="restore_on_exit">Estado de restauração automática quando desconecte o carregador</string>
+
+    <string name="time_left">Aguarde até a carga total da bateria</string>
+    <string name="battery_full">Aguarde até a carga total</string>
+    <string name="time_left_main">Aguarde até a carga total da bateria</string>
+    <string name="time_estimating">Estimando</string>
+    <string name="time_charging">A bateria está carregando</string>
+    <string name="time_left_value">%1$sh%2$sm</string>
+
+    <string name="title_activity_lock_setting">Configuração da tela de bloqueio</string>
+
+    <string name="lock_setting_toggle">Ative a tela de bloqueio por carregador rápido</string>
+
+    <string name="optimize_start">Otimizar</string>
+    <string name="optimize_running">Otimizando ...</string>
+    <string name="optimize_done">Feito</string>
+    <string name="slide_to_unlock">Deslize para desbloquear</string>
+    <string name="great">Impressionante!!!</string>
+    <string name="great_content">Seu dispositivo está pronto para o modo\nde carga rápida da bateria</string>
+
+    <string name="nof_title_not_charging">A bateria não está cobrando</string>
+    <string name="nof_title_charging">A bateria está carregando</string>
+    <string name="nof_title_low">Bateria está fraca</string>
+
+    <string name="nof_fast_charge_lite_optimized">Bateria de carga rápida otimizada</string>
+    <string name="nof_fast_charge_lite_unoptimized">Bateria de carga rápida não optimizada</string>
+    <string name="nof_fast_charge">Clique aqui para carregar rapidamente a bateria</string>
+
+    <string name="ask_bt_yes">sim</string>
+    <string name="ask_bt_no">Não</string>
+    <string name="ask_nomal_mode">Modo normal</string>
+    <string name="ask_fast_mode">Modo rápido</string>
+
+    <string name="ask_permission">Permitir que a configuração dos sistemas de mudança seja cobrada mais rapidamente</string>
+    <string name="download">Download</string>
+    <string name="cp_hot_apps">Mais aplicativos</string>
+    <string name="lbl_add_app">Mais aplicativos</string>
+
+    <string name="hint_optimize">Clique aqui para aumentar a velocidade\nde carregamento da bateria</string>
+    <string name="hint_setting">Clique aqui para alterar as opções\nde carga da bateria</string>
+    <string name="drawer_open">Aberto</string>
+    <string name="drawer_close">Fechar</string>
+    <string name="title_rate_app">Por favor avalie 5 * para nós!</string>
+    <string name="lbl_later">Mais tarde</string>
+    <string name="lbl_rate">Taxa</string>
+    <string name="sms_thank_you_rate">Por favor avalie 5 * para nós! Muito obrigado</string>
+    <string name="lbl_sponsored">Patrocinadas</string>
+    <string name="lbl_battery_save">Economizador de bateria</string>
+    <string name="advertisement">Propaganda</string>
+    <string name="rate_us">Avalie 5 estrelas para nós, se você gosta!</string>
+    <string name="optimize">Otimizar</string>
+    <string name="full_battery_on_exit">Alerta quando a bateria está cheia</string>
+    <string name="tip_optimize">Toque em "Otimizar" para colocar seu dispositivo no bom estado para ser carregado com bateria mais rapidamente.</string>
+    <string name="function_off_sync">Desligar Sync</string>
+    <string name="tip_done">Ótimo! Agora você pode conectar o carregador e aproveitar o modo de carregamento rápido.</string>
+    <string name="tip_optimizting">Aguarde até otimizar.</string>
+</resources>

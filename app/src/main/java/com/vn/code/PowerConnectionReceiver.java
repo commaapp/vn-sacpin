@@ -1,5 +1,6 @@
 package com.vn.code;
 
+import android.annotation.TargetApi;
 import android.app.ActivityOptions;
 import android.bluetooth.BluetoothAdapter;
 import android.content.BroadcastReceiver;
@@ -25,6 +26,7 @@ import static com.facebook.FacebookSdk.getApplicationContext;
 public class PowerConnectionReceiver extends BroadcastReceiver {
     boolean screenOff;
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void onReceive(Context context, Intent intent) {
         Bundle animation = ActivityOptions.makeCustomAnimation(context,
@@ -33,7 +35,7 @@ public class PowerConnectionReceiver extends BroadcastReceiver {
                 .toBundle();
 
         if (intent.getAction().equals("android.intent.action.ACTION_POWER_CONNECTED")) {
-            Log.e("abc", "ACTION_POWER_CONNECTED");
+            Log.e("abc", "CONNECTED");
             SharedPreferences sharedPref = context.getSharedPreferences(Config.SETTINGS_PREFERENCE, Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPref.edit();
             Intent i = new Intent(context, FloatActivity.class);
