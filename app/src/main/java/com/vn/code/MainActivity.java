@@ -29,7 +29,9 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.ads.AdSettings;
 import com.facebook.appevents.AppEventsLogger;
+import com.google.android.gms.ads.AdRequest;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -65,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         logger = AppEventsLogger.newLogger(this);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+//        AdRequest.Builder.addTestDevice("5EBD7399381255C67F1FD11B3792F569");
 //        toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
 //        ActionBar actionBar = getSupportActionBar();

@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:paddingTop="50dp">
-
     <LinearLayout
         android:id="@+id/fb_native_ad_container"
         android:layout_width="match_parent"

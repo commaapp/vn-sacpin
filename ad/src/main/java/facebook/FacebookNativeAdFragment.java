@@ -22,6 +22,7 @@
 
 package facebook;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -40,19 +41,75 @@ import com.facebook.ads.AdError;
 import com.facebook.ads.AdListener;
 import com.facebook.ads.MediaView;
 import com.facebook.ads.NativeAd;
+import com.google.android.gms.ads.AdRequest;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import inter.OnErrorLoadAd;
 
-public class FacebookNativeAdFragment extends Fragment {
+public class FacebookNativeAdFragment extends Fragment implements AdListener {
     private NativeAd nativeAd;
     private LinearLayout nativeAdContainer;
     private LinearLayout adView;
     private String idAd;
     private View rootView;
 
+    @Override
+    public void onAdLoaded(Ad ad) {
+        nativeAdContainer = rootView.findViewById(R.id.fb_native_ad_container);
+        View adView = inflater.inflate(R.layout.facebook_native_ad_layout_300, nativeAdContainer, false);
+        nativeAdContainer.removeAllViews();
+        nativeAdContainer.addView(adView);
+
+        // Create native UI using the ad metadata.
+        ImageView nativeAdIcon = adView.findViewById(R.id.native_ad_icon);
+        TextView nativeAdTitle = adView.findViewById(R.id.native_ad_title);
+        MediaView nativeAdMedia = adView.findViewById(R.id.native_ad_media);
+        TextView nativeAdSocialContext = adView.findViewById(R.id.native_ad_social_context);
+        TextView nativeAdBody = adView.findViewById(R.id.native_ad_body);
+        Button nativeAdCallToAction = adView.findViewById(R.id.native_ad_call_to_action);
+
+        // Set the Text.
+        nativeAdSocialContext.setText(nativeAd.getAdSocialContext());
+        nativeAdTitle.setText(nativeAd.getAdTitle());
+        nativeAdBody.setText(nativeAd.getAdBody());
+        nativeAdCallToAction.setText(nativeAd.getAdCallToAction());
+        // Download and display the ad icon.
+        NativeAd.Image adIcon = nativeAd.getAdIcon();
+        NativeAd.downloadAndDisplayImage(adIcon, nativeAdIcon);
+        // Download and display the cover image.
+        nativeAdMedia.setNativeAd(nativeAd);
+        // Add the AdChoices icon
+        LinearLayout adChoicesContainer = rootView.findViewById(R.id.ad_choices_container);
+        AdChoicesView adChoicesView = new AdChoicesView(getContext(), nativeAd, true);
+        adChoicesContainer.addView(adChoicesView);
+        // Register the Title and CTA button to listen for clicks.
+        List<View> clickableViews = new ArrayList<>();
+        clickableViews.add(nativeAdIcon);
+        clickableViews.add(nativeAdTitle);
+        clickableViews.add(nativeAdMedia);
+        clickableViews.add(nativeAdSocialContext);
+        clickableViews.add(nativeAdBody);
+        clickableViews.add(nativeAdCallToAction);
+        nativeAd.registerViewForInteraction(nativeAdContainer, clickableViews);
+    }
+
+    @Override
+    public void onError(Ad ad, AdError error) {
+        if (onErrorLoadAd != null)
+            onErrorLoadAd.onError();
+    }
+
+    @Override
+    public void onAdClicked(Ad ad) {
+
+    }
+
+    @Override
+    public void onLoggingImpression(Ad ad) {
+
+    }
 
     public void setIdAd(String idAd) {
         this.idAd = idAd;
@@ -67,13 +124,25 @@ public class FacebookNativeAdFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_native_ad, container, false);
-        showNativeAd();
+//        showNativeAd();
+        inflater = LayoutInflater.from(getActivity());
+
         return rootView;
+    }
+
+    LayoutInflater inflater;
+
+    private void showNativeAdCty() {
+//        adxView = LayoutInflater.from(getContext()).inflate(R.layout.item_ads, null, false);
+        nativeAd = new NativeAd(getActivity(), idAd);
+        nativeAd.setAdListener(this);
+        nativeAd.loadAd();
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        showNativeAdCty();
     }
 
     private OnErrorLoadAd onErrorLoadAd;
@@ -99,7 +168,7 @@ public class FacebookNativeAdFragment extends Fragment {
                     // Add the Ad view into the ad container.
                     nativeAdContainer = (LinearLayout) rootView.findViewById(R.id.fb_native_ad_container);
                     LayoutInflater inflater = LayoutInflater.from(getActivity());
-                    adView = (LinearLayout) inflater.inflate(R.layout.facebook_native_ad_layout, nativeAdContainer, false);
+                    adView = (LinearLayout) inflater.inflate(R.layout.facebook_native_ad_layout_300, nativeAdContainer, false);
                     nativeAdContainer.addView(adView);
 
                     // Create native UI using the ad metadata.

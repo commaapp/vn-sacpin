@@ -48,7 +48,7 @@ public class RichInterstialAdFragment extends Fragment {
 
     private void initInterstialAd() {
         mPublisherInterstitialAd = new PublisherInterstitialAd(getActivity());
-        mPublisherInterstitialAd.setAdUnitId("/112517806/319101516798826");
+        mPublisherInterstitialAd.setAdUnitId("/112517806/319401519264355");
         requestNewInterstitial();
     }
 

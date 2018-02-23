@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorWhite">#fff</color>
+    <color name="colorBtnCross">#CE352C</color>
+    <color name="text_shadow_white">#000</color>
+    <color name="colorBtnCrossPress">#b9000000</color>
+</resources>

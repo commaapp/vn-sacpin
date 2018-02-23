@@ -30,16 +30,20 @@
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
+
+
+        </activity>
+        <activity android:name=".SplashActivity">
+
+        </activity>
+        <activity android:name="cross.CrossFullscreenAdFragment"></activity>
+        <activity android:name="cross.Main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-<activity android:name=".SplashActivity">
-
-</activity>
         <activity
             android:name="com.vn.code.DoneActivity"
             android:launchMode="singleInstance"
@@ -64,8 +68,8 @@
 
         <activity
             android:name="com.vn.code.SettingsActivity"
-            android:screenOrientation="portrait"
             android:label="@string/action_settings"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>

@@ -196,15 +196,14 @@ public class MainFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-//        loadAdx();
-        showNativeAd();
+        loadAdx();
+//        showNativeAd();
     }
 
     NativeAdFragment nativeRich;
     FacebookNativeAdFragment nativeFB;
-    AdmodNativeAdFragment admodNativeAdFragment;
+//    AdmodNativeAdFragment admodNativeAdFragment;
     private void showNativeAd() {
-        AdSettings.addTestDevice("92d8057c822a59317fdcd8c8030080c6");
         nativeAd = new NativeAd(getContext(), "1631427560285640_1672969492798113");
 //        nativeAd = new NativeAd(getContext(), "");
         nativeAd.setAdListener(new AdListener() {
@@ -281,21 +280,19 @@ public class MainFragment extends Fragment {
     private void loadAdx() {
         nativeRich = new NativeAdFragment();
         nativeRich.setIdAd("/112517806/519401517413776");
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_ads, nativeRich).commitAllowingStateLoss();
+
         nativeFB = new FacebookNativeAdFragment();
         nativeFB.setIdAd("1631427560285640_1672969492798113");
-
-        admodNativeAdFragment=new AdmodNativeAdFragment();
-        admodNativeAdFragment.setIdAd("ca-app-pub-9912310468706838/1439053842");
 
         nativeFB.setOnErrorLoadAd(new OnErrorLoadAd() {
             @Override
             public void onError() {
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_ads, nativeRich).commitAllowingStateLoss();
+               getFragmentManager().beginTransaction().replace(R.id.fb_native_ad_container, nativeRich).commitAllowingStateLoss();
             }
         });
 
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_ads, admodNativeAdFragment).commitAllowingStateLoss();
+     getFragmentManager().beginTransaction().replace(R.id.fb_native_ad_container, nativeFB).commitAllowingStateLoss();
+
     }
 
     @Override
