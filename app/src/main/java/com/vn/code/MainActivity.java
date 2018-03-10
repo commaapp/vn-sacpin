@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         logger = AppEventsLogger.newLogger(this);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        AdSettings.addTestDevice("6571e1f14a42b3ca80108430a8209c7e");
 //        AdRequest.Builder.addTestDevice("5EBD7399381255C67F1FD11B3792F569");
 //        toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
@@ -108,14 +109,7 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         askWriteSetting();
     }
 
-    private void loadCrossInterstitial() {
 
-        try {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/developer?id=ECO+STUDIO")));
-        } catch (ActivityNotFoundException anfe) {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/developer?id=ECO+STUDIO")));
-        }
-    }
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {

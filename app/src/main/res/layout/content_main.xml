@@ -84,7 +84,7 @@
                 android:textColor="@color/colorAccent" />
 
             <LinearLayout
-                android:id="@+id/fb_native_ad_container"
+                android:id="@+id/frame_ads"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_tip_optimize"

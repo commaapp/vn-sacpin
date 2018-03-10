@@ -37,7 +37,7 @@ public class SplashActivity extends AppCompatActivity {
                     richInterstialAdFragment.setOnErrorLoadAd(new OnErrorLoadAd() {
 
                         @Override
-                        public void onError() {
+                        public void onMyError() {
                             finish();
 //                            facebookInterstitialFragment.setOnErrorLoadAd(new OnErrorLoadAd() {
 //                                @Override

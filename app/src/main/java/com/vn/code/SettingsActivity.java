@@ -23,13 +23,17 @@ import com.facebook.appevents.AppEventsLogger;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import es.dmoral.prefs.Prefs;
-import facebook.FacebookNativeAdFragment;
+import facebook.FacebookBanner;
 import inter.OnErrorLoadAd;
-import richadx.NativeAdFragment;
+import richadx.RichNativeAd;
 
 public class SettingsActivity extends AppCompatActivity
         implements CompoundButton.OnCheckedChangeListener, RadioGroup.OnCheckedChangeListener {
+    @BindView(R.id.frame_ads)
+    LinearLayout frameAds;
     private ImageView btnBack;
     private AppEventsLogger logger;
     private ImageView btnRate;
@@ -40,28 +44,28 @@ public class SettingsActivity extends AppCompatActivity
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_settings);
+        ButterKnife.bind(this);
         initView();
         loadAdx();
     }
 
-    NativeAdFragment nativeRich;
-    FacebookNativeAdFragment nativeFB;
+    RichNativeAd nativeRich;
+    FacebookBanner facebookBanner;
 
     private void loadAdx() {
-        nativeRich = new NativeAdFragment();
-        nativeRich.setIdAd("/112517806/519401517413692");
 
-        nativeFB = new FacebookNativeAdFragment();
-        nativeFB.setIdAd("1631427560285640_1672977689463960");
 
-        nativeFB.setOnErrorLoadAd(new OnErrorLoadAd() {
+        nativeRich = new RichNativeAd(this, frameAds, "/112517806/519401517413692");
+        facebookBanner = new FacebookBanner(this, frameAds, "1631427560285640_1672977689463960");
+        facebookBanner.setOnErrorLoadAd(new OnErrorLoadAd() {
             @Override
-            public void onError() {
-                getSupportFragmentManager().beginTransaction().replace(R.id.frame_ads, nativeRich).commitAllowingStateLoss();
+            public void onMyError() {
+                nativeRich.show();
             }
         });
+        facebookBanner.show();
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.frame_ads, nativeFB).commitAllowingStateLoss();
+
     }
 
     @SuppressLint("RestrictedApi")

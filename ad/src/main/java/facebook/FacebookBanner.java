@@ -22,6 +22,7 @@
 
 package facebook;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -40,45 +41,30 @@ import com.facebook.ads.AdView;
 
 import inter.OnErrorLoadAd;
 
-public class FacebookBannerFragment extends Fragment {
+public class FacebookBanner {
     private AdView adView;
+    OnErrorLoadAd onErrorLoadAd;
+    Context mContext;
+    View mViewContainer;
+    String idAd;
 
-    private OnErrorLoadAd onErrorLoadAd;
-
-    public void setOnErrorLoadAd(OnErrorLoadAd onErrorLoadAd) {
-        this.onErrorLoadAd = onErrorLoadAd;
-
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_banner, container, false);
-    }
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        showBanner();
-    }
-
-    public void setIdAd(String idAd) {
+    public FacebookBanner(Context mContext, View mViewContainer, String idAd) {
+        this.mContext = mContext;
+        this.mViewContainer = mViewContainer;
         this.idAd = idAd;
     }
 
-    private String idAd;
 
-    public void showBanner() {
+    public void setOnErrorLoadAd(OnErrorLoadAd onErrorLoadAd) {
+        this.onErrorLoadAd = onErrorLoadAd;
+    }
+
+    public void show() {
         // Instantiate an AdView view
-        adView = new AdView(getContext(), idAd, AdSize.BANNER_HEIGHT_50);
+        adView = new AdView(mContext, idAd, AdSize.BANNER_HEIGHT_50);
 
         // Find the Ad container
-        LinearLayout adContainer = (LinearLayout) getView().findViewById(R.id.banner_container);
+        LinearLayout adContainer = (LinearLayout) mViewContainer;
 
         // Add the ad view to container
         adContainer.addView(adView);
@@ -87,19 +73,22 @@ public class FacebookBannerFragment extends Fragment {
             @Override
             public void onError(Ad ad, AdError adError) {
                 if (onErrorLoadAd != null)
-                    onErrorLoadAd.onError();
+                    onErrorLoadAd.onMyError();
             }
 
             @Override
             public void onAdLoaded(Ad ad) {
+
             }
 
             @Override
             public void onAdClicked(Ad ad) {
+
             }
 
             @Override
             public void onLoggingImpression(Ad ad) {
+
             }
         });
 

@@ -65,7 +65,7 @@ public class AdmodInterstialAdFragment extends Fragment {
             public void onAdFailedToLoad(int i) {
                 super.onAdFailedToLoad(i);
                 if (onErrorLoadAd != null)
-                    onErrorLoadAd.onError();
+                    onErrorLoadAd.onMyError();
             }
 
             @Override

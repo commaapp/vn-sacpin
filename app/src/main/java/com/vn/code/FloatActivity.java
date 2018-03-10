@@ -12,18 +12,24 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 
-
 import com.facebook.appevents.AppEventsLogger;
 
-import facebook.FacebookNativeAdFragment;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import facebook.FacebookBanner;
 import inter.OnErrorLoadAd;
-import richadx.NativeAdFragment;
+import richadx.RichNativeAd;
 
-import static com.vn.code.Config.*;
+import static com.vn.code.Config.IS_ASKING;
+import static com.vn.code.Config.IS_LOCKING;
+import static com.vn.code.Config.SETTINGS_PREFERENCE;
+import static com.vn.code.Config.TRIGGER_SHOW_STATE_CHARGING;
 
 
 public class FloatActivity extends AppCompatActivity implements View.OnClickListener {
 
+    @BindView(R.id.frame_ads)
+    LinearLayout frameAds;
     private BroadcastReceiver broadcastReceiver;
     private AppEventsLogger logger;
 
@@ -43,6 +49,7 @@ public class FloatActivity extends AppCompatActivity implements View.OnClickList
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
 
         setContentView(R.layout.activity_float);
+        ButterKnife.bind(this);
 
         findViewById(R.id.btn_no).setOnClickListener(this);
         findViewById(R.id.btn_yes).setOnClickListener(this);
@@ -59,24 +66,19 @@ public class FloatActivity extends AppCompatActivity implements View.OnClickList
         loadAdx();
     }
 
-    NativeAdFragment nativeRich;
-    FacebookNativeAdFragment nativeFB;
+    RichNativeAd nativeRich;
+    FacebookBanner facebookBanner;
 
     private void loadAdx() {
-        nativeRich = new NativeAdFragment();
-        nativeRich.setIdAd("/112517806/519401517414007");
-
-        nativeFB = new FacebookNativeAdFragment();
-        nativeFB.setIdAd("1631427560285640_1672977469463982");
-
-        nativeFB.setOnErrorLoadAd(new OnErrorLoadAd() {
+        nativeRich = new RichNativeAd(this, frameAds, "/112517806/519401517414007");
+        facebookBanner = new FacebookBanner(this, frameAds, "1631427560285640_1672977469463982");
+        facebookBanner.setOnErrorLoadAd(new OnErrorLoadAd() {
             @Override
-            public void onError() {
-                getSupportFragmentManager().beginTransaction().replace(R.id.frame_ads, nativeRich).commitAllowingStateLoss();
+            public void onMyError() {
+                nativeRich.show();
             }
         });
-
-        getSupportFragmentManager().beginTransaction().replace(R.id.frame_ads, nativeFB).commitAllowingStateLoss();
+        facebookBanner.show();
     }
 
     @Override

@@ -5,5 +5,5 @@ package inter;
  */
 
 public interface OnErrorLoadAd {
-    public void onError();
+    public void onMyError();
 }

@@ -68,7 +68,7 @@ public class BannerAdFragment extends Fragment {
                 public void onAdFailedToLoad(int i) {
                     super.onAdFailedToLoad(i);
                     if (onErrorLoadAd != null)
-                        onErrorLoadAd.onError();
+                        onErrorLoadAd.onMyError();
 //                    loadCrossNative();
                 }
             });

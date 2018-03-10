@@ -87,7 +87,7 @@ public class FacebookInterstitialFragment extends Fragment {
             @Override
             public void onError(Ad ad, AdError adError) {
                 if (onErrorLoadAd != null)
-                    onErrorLoadAd.onError();
+                    onErrorLoadAd.onMyError();
             }
 
             @Override

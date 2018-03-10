@@ -83,7 +83,7 @@ public class AdmodBannerAdFragment extends Fragment {
             @Override
             public void onAdFailedToLoad(int i) {
                 if (onErrorLoadAd != null)
-                    onErrorLoadAd.onError();
+                    onErrorLoadAd.onMyError();
             }
         });
 

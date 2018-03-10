@@ -9,12 +9,18 @@ import android.widget.LinearLayout;
 
 import com.facebook.appevents.AppEventsLogger;
 
-import facebook.FacebookNativeAdFragment;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import facebook.FacebookBanner;
 import inter.OnErrorLoadAd;
-import richadx.NativeAdFragment;
+import richadx.RichNativeAd;
 
 
 public class DoneActivity extends AppCompatActivity {
+    @BindView(R.id.frame_ads)
+    LinearLayout frameAds;
+    @BindView(R.id.native_ad_container_main)
+    LinearLayout nativeAdContainerMain;
     private Button btnDone;
     AppEventsLogger logger;
     LinearLayout nativeAdContainer;
@@ -24,6 +30,7 @@ public class DoneActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_done);
+        ButterKnife.bind(this);
         logger = AppEventsLogger.newLogger(DoneActivity.this);
 
         btnDone = (Button) findViewById(R.id.btn_ok);
@@ -37,26 +44,22 @@ public class DoneActivity extends AppCompatActivity {
 
 
     }
-    NativeAdFragment nativeRich;
-    FacebookNativeAdFragment nativeFB;
+
+    RichNativeAd nativeRich;
+    FacebookBanner facebookBanner;
 
     private void loadAdx() {
-        nativeRich = new NativeAdFragment();
-        nativeRich.setIdAd("/112517806/519401517413938");
-
-        nativeFB = new FacebookNativeAdFragment();
-        nativeFB.setIdAd("1631427560285640_1672975596130836");
-
-        nativeFB.setOnErrorLoadAd(new OnErrorLoadAd() {
+        nativeRich = new RichNativeAd(this, frameAds, "/112517806/519401517413938");
+        facebookBanner = new FacebookBanner(this, frameAds, "1631427560285640_1672975596130836");
+        facebookBanner.setOnErrorLoadAd(new OnErrorLoadAd() {
             @Override
-            public void onError() {
-                getSupportFragmentManager().beginTransaction().replace(R.id.frame_ads, nativeRich).commitAllowingStateLoss();
+            public void onMyError() {
+                nativeRich.show();
             }
         });
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.frame_ads, nativeFB).commitAllowingStateLoss();
+        facebookBanner.show();
     }
-
 
 
 }
