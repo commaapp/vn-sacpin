@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Vibrator Massager</string>
+    <string name="facebook_app_id" translatable="false">199662360787713</string>
+    <string name="rate_five_star">Please rate 5* for us, Thank you very much</string>
+    <string name="lbl_later">Later</string>
+    <string name="lbl_rate">Rate</string>
+    <string name="title_rate_app">Please rate 5* for us!</string>
+    <string name="sms_thank_you_rate">Please rate 5* for us, thank you very much</string>
+</resources>

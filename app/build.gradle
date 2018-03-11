@@ -24,8 +24,8 @@ android {
         applicationId "batterydoctor.fastcharger.batterysaver.fastcharging.sacpinnhanh"
         minSdkVersion 15
         targetSdkVersion 25
-        versionCode 18
-        versionName "1.1.7"
+        versionCode 20
+        versionName "1.1.9"
     }
     buildTypes {
         release {
@@ -54,4 +54,5 @@ dependencies {
     }
     compile 'com.google.android.gms:play-services-ads:11.8.0'
     implementation project(':ad')
+    implementation project(':rateapp')
 }

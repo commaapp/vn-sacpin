@@ -43,7 +43,6 @@ public class CrossFullscreenAdFragment extends Activity {
         showNativeAd();
     }
 
-
     LayoutInflater inflater;
     CrossAd.VNCross vnCross;
 

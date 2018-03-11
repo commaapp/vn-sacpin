@@ -35,6 +35,7 @@ import com.google.android.gms.ads.AdRequest;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import core.RateMyApp;
 import es.dmoral.prefs.Prefs;
 
 import static com.vn.code.Config.SETTINGS_PREFERENCE;
@@ -110,7 +111,6 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
     }
 
 
-
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
@@ -143,71 +143,22 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
 
     @Override
     public void onBackPressed() {
-        boolean action = MyCache.getBooleanValueByName(MainActivity.this, Config.LOG_APP, "action");
-        if (!action) {
-            if (!MyCache.getBooleanValueByName(MainActivity.this, Config.LOG_APP, "rate")) {
-                showDialogRateApp();
-            } else {
-                super.onBackPressed();
-            }
-        } else {
-            super.onBackPressed();
-        }
+
+
+//        boolean action = MyCache.getBooleanValueByName(MainActivity.this, Config.LOG_APP, "action");
+//        if (!action) {
+//            if (!MyCache.getBooleanValueByName(MainActivity.this, Config.LOG_APP, "rate")) {
+//                showDialogRateApp();
+//            } else {
+//                super.onBackPressed();
+//            }
+//        } else {
+//            super.onBackPressed();
+//        }
+        new RateMyApp(this).show();
+
     }
 
-    private void showDialogRateApp() {
-        final Dialog dialog1 = new Dialog(MainActivity.this);
-        dialog1.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dialog1.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        LayoutInflater layoutInflater = LayoutInflater.from(this);
-        dialog1.setContentView(layoutInflater.inflate(R.layout.custom_dialog_rate, null));
-        dialog1.setCancelable(true);
-        final TextView btnRate = dialog1.findViewById(R.id.btnRate);
-        TextView btnLater = dialog1.findViewById(R.id.btnLater);
-
-
-        btnRate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (MyCache.getBooleanValueByName(MainActivity.this, Config.LOG_APP, "change")) {
-                    MyCache.putBooleanValueByName(MainActivity.this, Config.LOG_APP, "rate", true);
-                    dialog1.dismiss();
-                    finish();
-                }
-
-            }
-        });
-        btnLater.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MyCache.putBooleanValueByName(MainActivity.this, Config.LOG_APP, "rate", false);
-                dialog1.dismiss();
-                finish();
-            }
-        });
-        RatingBar mRatingBar = dialog1.findViewById(R.id.mRatingBar);
-        LayerDrawable stars = (LayerDrawable) mRatingBar.getProgressDrawable();
-        stars.getDrawable(0).setColorFilter(getResources().getColor(R.color.colorLater), PorterDuff.Mode.SRC_ATOP);
-
-        mRatingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-            @Override
-            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                if (rating > 3) {
-                    Toast.makeText(MainActivity.this, getString(R.string.sms_thank_you_rate), Toast.LENGTH_SHORT).show();
-                    MyCache.putBooleanValueByName(MainActivity.this, Config.LOG_APP, "rate", true);
-                    Intent i = new Intent("android.intent.action.VIEW");
-                    i.setData(Uri.parse("https://play.google.com/store/apps/details?id=" + getPackageName()));
-                    startActivity(i);
-                    finish();
-                } else if (rating <= 3) {
-                    MyCache.putBooleanValueByName(MainActivity.this, Config.LOG_APP, "change", true);
-                } else {
-                }
-            }
-        });
-
-        dialog1.show();
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -30,14 +30,14 @@ public class Main extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_cross);
-
-        CrossAd.init(this);
-
-        for (CrossAd.VNCross vnCross : CrossAd.getCrossAd(this)) {
-            Log.e("hihi", vnCross.toString());
-        }
-        getSupportFragmentManager().beginTransaction().replace(R.id.frame_cross, new CrossNativeAdFragment()).commitAllowingStateLoss();
-        startActivity(new Intent(this, CrossFullscreenAdFragment.class));
+//
+//        CrossAd.init(this);
+//
+//        for (CrossAd.VNCross vnCross : CrossAd.getCrossAd(this)) {
+//            Log.e("hihi", vnCross.toString());
+//        }
+//        getSupportFragmentManager().beginTransaction().replace(R.id.frame_cross, new CrossNativeAdFragment()).commitAllowingStateLoss();
+//        startActivity(new Intent(this, CrossFullscreenAdFragment.class));
     }
 
 

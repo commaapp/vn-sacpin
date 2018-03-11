@@ -29,19 +29,21 @@ public class PowerConnectionReceiver extends BroadcastReceiver {
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void onReceive(Context context, Intent intent) {
-        Bundle animation = ActivityOptions.makeCustomAnimation(context,
-                R.anim.fade_in,
-                R.anim.fade_out)
-                .toBundle();
-
+//        try {
+//            Bundle animation = ActivityOptions.makeCustomAnimation(context,
+//                    R.anim.fade_in,
+//                    R.anim.fade_out)
+//                    .toBundle();
+//        } catch (Exception e) {
+//
+//        }
         if (intent.getAction().equals("android.intent.action.ACTION_POWER_CONNECTED")) {
-            Log.e("abc", "CONNECTED");
             SharedPreferences sharedPref = context.getSharedPreferences(Config.SETTINGS_PREFERENCE, Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPref.edit();
             Intent i = new Intent(context, FloatActivity.class);
             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             editor.putBoolean(Config.IS_ASKING, true).apply();
-            context.startActivity(i, animation);
+            context.startActivity(i);
             notiFullBattery();
             if (((screenOff = !isScreenOn(context)) || !ChargeUtils.isAppOnForeground(context))) {
                 if (screenOff) {
@@ -68,17 +70,14 @@ public class PowerConnectionReceiver extends BroadcastReceiver {
             }
 
             editor.putBoolean(Config.IS_CHARGER_CONNECTED, true);
-
             editor.commit();
-
 //            MyApplication.showNotification();
             MyApplication.showNotificationOptimize();
         } else if (intent.getAction().equals("android.intent.action.ACTION_POWER_DISCONNECTED")) {
             SharedPreferences sharedPref = context.getSharedPreferences(Config.SETTINGS_PREFERENCE, Context.MODE_PRIVATE);
             boolean restoreOnUnPlug = sharedPref.getBoolean(Config.TRIGGER_RESTORE_STATE, true);
-            if (restoreOnUnPlug && MyApplication.isOptimized()) {
+            if (restoreOnUnPlug && MyApplication.isOptimized())
                 restoreState(sharedPref, context);
-            }
             SharedPreferences.Editor editor = sharedPref.edit();
             editor.putBoolean(Config.IS_CHARGER_CONNECTED, false)
                     .putInt(Config.BATTERY_LEVEL, -1)
