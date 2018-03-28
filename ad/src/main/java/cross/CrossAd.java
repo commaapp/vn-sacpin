@@ -27,8 +27,11 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-/**
- * Created by D on 2/23/2018.
+/*
+
+
+
+
  */
 
 public class CrossAd {
